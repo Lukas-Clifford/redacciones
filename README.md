@@ -26,3 +26,23 @@ Este fue un trabajo de investigación que nos mandó nuestro profesor de program
 ![{3C0844B6-6655-4548-8E32-B3DC89375F55}](https://github.com/user-attachments/assets/fea4be64-999b-4040-ad47-4bb3324fb609)
 
 ![{0AC338AD-835B-42E8-B630-E691A70CA91E}](https://github.com/user-attachments/assets/b7324dd5-05e4-4f69-846f-4a2c88e5592c)
+
+## Puesta de trabajo en la nube para una empresa pequeña (Digitalización 2)
+Este trabajo trata de proponer ideas sobre cómo digitalizar una consultoría con un sistema en la nube. Lo único que me gusta de este trabajo es la parte de ventajas e inconvenientes. Aquí, el enunciado decía que había que convencer a uno de los socios de la consultoria con ventajas. Para evitar usar una tabla, lo que hice fue escribir un diálogo entre los dos socios de la consultoría. Al estilo libro como se puede ver en las imágenes. El resto del trabajo pues sin más, pero me hace gracia este detalle.
+
+![{E7C1BA33-1BD4-43D7-8BCE-6E41F7EF9FC5}](https://github.com/user-attachments/assets/8cd74efe-83cf-4ded-83da-e5f416bf77eb)
+
+## Integración de medidas de seguridad en una empresa (Digitalización 3)
+Sobre este trabajo fue el tema de la relación calidad-tiempo. Fue un trabajo que hice en un día que acabó con un resultado muy limpio. Con logo ficticio, partes con su giro de tuerca, detalles de interpretación... Me quedé satisfecho con él. Se trata de un trabajo sobre incorporar seguridad informática a una empresa de aceite de oliva. El enunciado, al ser de un libro, estaba orientado a hacer grupos y hacer presentaciones. Nosotros en clase no tenemos tiempo para eso así que solo hacemos los documentos. En este caso, este enunciado, la mitad era como de presentar y para hacer un trabajo decente, en vez de no hacer esa parte, la incorporé directamente en el documento. La tarea 2 era de realizar una presentación y lo que hice fue escribir (generar con chatGPT) un diálogo de mi persona contando los temas tratados en el tarea 1. Luego en el tarea 3 había que hacer un ejercicio práctico para mis compañeros tras la presentación. Directamente escribí un pequeño test en el documento sobre lo visto en la presentación.
+
+![{0117CB10-B5C1-4FBB-BCD1-2548F2EF327D}](https://github.com/user-attachments/assets/5464f2dd-b05c-4155-88de-646ce66da380)
+
+![{FAD5628C-429C-4015-8C4E-CD1AE283420A}](https://github.com/user-attachments/assets/8519730f-c076-427d-ae57-14d20a681913)
+
+![{71463DB6-F61C-4BC1-BB73-78D26E321988}](https://github.com/user-attachments/assets/eb58350d-7f64-4fe1-bfa6-a1eebe39c6c6)
+
+
+
+
+
+
