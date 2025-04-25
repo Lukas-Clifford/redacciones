@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.w3schools.com"
+           xmlns="https://www.w3schools.com"
+           elementFormDefault="qualified">
+    <xs:element name="trabajo">
+
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cabecera">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="tituloDocumento" type="xs:string"/>
+                            <xs:element name="subtitulo" type="xs:string"/>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="seccion" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="titulo" type="xs:string"/>
+
+                            <xs:element name="contenido">
+                                <xs:complexType>
+                                    <xs:choice maxOccurs="unbounded">
+
+                                        <xs:element name="subtitulo" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+
+                                        <xs:element name="parrafo" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+
+                                        <xs:element name="lista" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="item" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+
+                                        </xs:element>
+
+                                        <xs:element name="ejemplo" minOccurs="0" maxOccurs="unbounded" type="xs:string" />
+
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+
+
+    </xs:element>
+</xs:schema>

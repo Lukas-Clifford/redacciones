@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="estilo.css"?>
+
+
+
+<trabajo
+
+xmlns="https://www.w3schools.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://www.w3schools.com/xml validacion.xsd">
+    
+    <cabecera>
+        <tituloDocumento>XML</tituloDocumento>
+        <subtitulo>Lukas Clifford Vogdt Torralba</subtitulo>
+    </cabecera>
+    
+    
+    <seccion>
+
+        <titulo>¿Qué es XML?</titulo>
+
+        <contenido>
+
+            <parrafo>El lenguaje de marcado extensible es, como dice su nombre, un lenguaje de marcas que no se basa en un conjunto de etiquetas como hace HTML. En XML las etiquetas son creadas acorde a la necesidad del sistema.</parrafo>
+            <parrafo>Se utiliza para el almacenamiento e intercambio de datos de una manera estructurada entre distintas plataformas.</parrafo>
+            <parrafo>Es un lenguaje “padre”, que de él, salen muchos lenguajes “hijos” llamados dialectos XML. Algunos son:</parrafo>
+
+            <lista>
+                <item>MathML para hacer expresiones matemáticas</item>
+                <item>SVG para hacer gráficos vectoriales</item>
+                <item>GML para información geográfica</item>
+            </lista>
+
+        </contenido>
+    </seccion>
+
+    <seccion>
+        <titulo>Cómo se escribe</titulo>
+        <contenido>
+            <subtitulo>Etiquetas</subtitulo>
+
+            <parrafo>Se utilizan los signos &lt;&gt; y / para definir etiquetas.</parrafo>
+            <ejemplo>
+    &lt;etiqueta ejemplo&gt;&lt;/etiqueta ejemplo&gt;
+            </ejemplo>
+            <parrafo>Además, si un elemento no contiene un valor se puede escribir:</parrafo>
+            <ejemplo>
+    &lt;etiqueta-sin-valor/&gt;
+            </ejemplo>
+
+            <parrafo>Los nombres de los elementos son case sensitive y tienen que cumplir las siguientes normas:</parrafo>
+            <lista>
+                <item>Pueden tener letras minúsculas, mayúsculas, números, puntos, guiones medios y guiones bajos.</item>
+                <item>Pueden tener el carácter dos puntos pero su uso es para definir namespaces.</item>
+                <item>El primer carácter tiene que ser una letra o guión bajo.</item>
+            </lista>
+            <parrafo>Letras no inglesas permitidas pero no aconsejables.
+                Guión medio y punto, tampoco aconsejables. El guión porque se puede confundir con el símbolo de resta y el punto porque se puede interpretar como propiedades de objeto (objeto.propiedad)</parrafo>
+
+
+            <subtitulo>Estructura</subtitulo>
+            <parrafo>Los documentos XML se organizan en una estructura de árbol invertido con elementos padre y elementos hijos. Por ejemplo, cada sección de este documento tiene (no obligatoriamente todos):</parrafo>
+            <ejemplo>
+    Sección
+    ├── subtitulo
+    ├── párrafo
+    ├── lista
+    │   └── item
+    └── ejemplo
+            </ejemplo>
+
+            <parrafo>Además, un elemento puede contener contenido mixto como: </parrafo>
+            <ejemplo>
+    &lt;nombre&gt;Lukas&lt;/nombre&gt; estudia en el IES &lt;Instituto&gt;Gran Capitán&lt;/Instituto&gt;
+            </ejemplo>
+
+            <subtitulo>Atributos</subtitulo>
+            <parrafo>Los atributos son información extra que se le puede añadir al elemento que los contiene. Se definen en la etiqueta de inicio y siguen las mismas normas sintácticas que los nombres de los elementos. Además, deben tener nombres únicos dentro del elemento.</parrafo>
+            <ejemplo>
+    &lt;punto x="2" y="4"/&gt;
+            </ejemplo>
+
+            <subtitulo>Referencias a Caracteres Especiales</subtitulo>
+            <parrafo>En XML, existen ciertos caracteres con un significado especial, como &lt;, &gt;, &amp;, " y ', que no pueden usarse directamente en el contenido de los elementos. Para representarlos correctamente, se emplean referencias a entidades, que permiten que los procesadores de XML los interpreten sin errores.</parrafo>
+            <lista>
+                <item>&lt; se representa como &amp;lt;</item>
+                <item>&gt; se representa como &amp;gt;</item>
+                <item>&amp; se representa como &amp;amp;</item>
+                <item>" se representa como &amp;quot;</item>
+                <item>' se representa como &amp;apos;</item>
+            </lista>
+            <parrafo>Además, se pueden utilizar referencias numéricas Unicode para representar cualquier carácter especial usando &amp;# seguido del código decimal o hexadecimal del carácter.</parrafo>
+
+
+            <subtitulo>Comentarios en XML</subtitulo>
+            <parrafo>Los comentarios permiten agregar notas dentro del código XML sin afectar su funcionamiento. Se escriben entre &lt;!-- y --&gt;. Sin embargo, hay ciertas restricciones:</parrafo>
+            <lista>
+                <item>No pueden incluir dos guiones consecutivos (--).</item>
+                <item>No se pueden anidar comentarios dentro de otros comentarios.</item>
+                <item>No deben incluirse dentro de etiquetas.</item>
+            </lista>
+            <ejemplo>
+    &lt;!-- Esto es un comentario en XML --&gt;
+            </ejemplo>
+
+            <subtitulo>Instrucciones de procesamiento</subtitulo>
+            <parrafo>Sirven para indicar información al programa que procese el documento. Se escriben con &lt;? y ?&gt;. Una instrucción de procesamiento común es la declaración XML que, si aparece, está siempre en la primera línea</parrafo>
+            <ejemplo>
+    &lt;!-- Declaración XML --&gt;
+    &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+
+    &lt;!-- Asignación de hoja de estilos --&gt;
+    &lt;?xml-stylesheet type="text/css" href="nombre_estilo.css"?&gt;
+            </ejemplo>
+
+            <subtitulo>Namespaces en XML</subtitulo>
+            <parrafo>Los namespaces (espacios de nombres) en XML evitan conflictos entre etiquetas cuando se combinan diferentes esquemas XML en un mismo documento. Se declaran usando el atributo xmlns.</parrafo>
+            <ejemplo>
+    &lt;documento xmlns:h="http://www.ejemplo.com/html"&gt;
+    &lt;h:titulo&gt;Mi Documento&lt;/h:titulo&gt;
+    &lt;/documento&gt;
+            </ejemplo>
+            <parrafo>En este caso, el prefijo h hace referencia al namespace definido en la URL, lo que evita confusión si existen etiquetas titulo en otros contextos.</parrafo>
+
+            <subtitulo>Documentos XML bien formados y válidos</subtitulo>
+            <parrafo>Un documento XML bien formado es aquel que cumple con las reglas básicas de sintaxis.</parrafo>
+            <lista>
+                <item>Todos los elementos deben tener una etiqueta de apertura y una de cierre.</item>
+                <item>Las etiquetas deben estar correctamente anidadas.</item>
+                <item>Solo puede haber un elemento raíz.</item>
+                <item>Los nombres de elementos y atributos deben seguir las reglas sintácticas de XML.</item>
+                <item>Los valores de los atributos deben ir entre comillas.</item>
+            </lista>
+            <parrafo>Un documento XML válido no solo debe estar bien formado, sino que también debe ajustarse a una estructura definida mediante DTD o XSD.</parrafo>
+
+
+        </contenido>
+    </seccion>
+    
+    <seccion>
+        <titulo>Document Type Definition</titulo>
+        <contenido>
+            <parrafo>DTD es un mecanismo que define la estructura y reglas que debe cumplir un documento XML para ser válido. Se puede incluir dentro del propio documento o en un archivo externo. Un documento XML será válido cuando, además de estar bien formado, respete las normas establecidas en su DTD.</parrafo>
+
+            <subtitulo>DTD interna</subtitulo>
+                <parrafo>Se incluye dentro del propio documento XML. Se utiliza cuando la estructura solo es necesaria para un único documento.</parrafo>
+            <ejemplo>
+    &lt;!DOCTYPE saludo [&lt;!ELEMENT saludo (#PCDATA)&gt;]&gt;
+    &lt;saludo&gt;Hola, mundo&lt;/saludo&gt;
+            </ejemplo>
+
+            <subtitulo>DTD externa</subtitulo>
+
+            <parrafo>Se almacena en un archivo separado y puede ser referenciada por múltiples documentos XML, evitando la redundancia.</parrafo>
+            <ejemplo>
+    &lt;!DOCTYPE saludo SYSTEM "saludo.dtd"&gt;
+    &lt;saludo&gt;Hola, mundo&lt;/saludo&gt;
+            </ejemplo>
+            <parrafo>La DTD saludo.dtd contendría:</parrafo>
+            <ejemplo>
+    &lt;!ELEMENT saludo (#PCDATA)&gt;
+            </ejemplo>
+
+
+            <subtitulo>Declaración de Elementos en DTD</subtitulo>
+            <parrafo>Para definir un elemento dentro de una DTD se utiliza la siguiente sintaxis:</parrafo>
+            <ejemplo>
+    &lt;!ELEMENT nombre_elemento tipo_de_contenido&gt;
+            </ejemplo>
+            <parrafo>Donde tipo_de_contenido puede ser:</parrafo>
+            <lista>
+                <item>#PCDATA: Contenido de texto.</item>
+                <item>EMPTY: Elemento vacío.</item>
+                <item>ANY: Puede contener cualquier tipo de datos.</item>
+                <item>Una secuencia de elementos hijos.</item>
+            </lista>
+
+            <parrafo>Ejemplo de un elemento "persona": </parrafo>
+            <ejemplo>
+    &lt;!ELEMENT persona (#PCDATA)&gt;
+            </ejemplo>
+
+
+            <subtitulo>Declaración de Atributos en DTD</subtitulo>
+            <parrafo>Los atributos se definen con la siguiente sintaxis: </parrafo>
+            <ejemplo>
+    &lt;ATTLIST nombre_elemento nombre_atributo tipo_de_contenido #modificador&gt;
+            </ejemplo>
+            <parrafo>El atributo edad debe ser obligatorio y contener texto.</parrafo>
+            <parrafo>Tipos de atributos en DTD: </parrafo>
+            <lista>
+                <item>CDATA: Contiene datos en formato de texto.</item>
+                <item>ID: Identificador único dentro del documento.</item>
+                <item>IDREF: Referencia a un atributo ID existente.</item>
+                <item>Enumerados: Lista de valores posibles.</item>
+            </lista>
+            <parrafo>Tipos de modificadores en DTD: </parrafo>
+            <lista>
+                <item>#REQUIRED: El atributo debe estar presente.</item>
+                <item>#IMPLIED: El atributo es opcional.</item>
+                <item>#FIXED valor: El atributo siempre tiene ese valor.</item>
+                <item>"valor": Valor por defecto si no se especifica en el XML.</item>
+            </lista>
+
+            <parrafo>Ejemplo de añadirle un atributo "edad" al elemento "persona": </parrafo>
+            <ejemplo>
+    &lt;ATTLIST persona edad CDATA #REQUIRED&gt;
+            </ejemplo>
+
+            <subtitulo>Ejemplo completo</subtitulo>
+
+            <parrafo>Archivo "coches.dtd" donde se define el padre "coches", el hijo "coche" y sus atributos:</parrafo>
+            <ejemplo>
+    &lt;!ELEMENT coches (descripcion)&gt;
+
+    &lt;!ELEMENT coche EMPTY&gt;
+    &lt;!ATTLIST coche
+        marca CDATA #REQUIRED
+        color (rojo|azul|negro) "negro"
+        matricula ID #IMPLIED&gt;
+            </ejemplo>
+
+            <parrafo>Archivo "coches.xml":</parrafo>
+            <ejemplo>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;!DOCTYPE coches SYSTEM "coches.dtd"&gt;
+
+    &lt;coches&gt;
+
+    &lt;!-- Ejemplos de uso del elemento 'coche' con atributos --&gt;
+
+    &lt;coche marca=&quot;Toyota&quot; color=&quot;rojo&quot; matricula=&quot;AB123&quot;/&gt;
+
+    &lt;!-- El coche tendrá el color negro por defecto --&gt;
+    &lt;coche marca=&quot;Peugeot&quot;/&gt;
+
+    &lt;/coches&gt;
+            </ejemplo>
+        </contenido>
+    </seccion>
+
+
+    <seccion>
+        <titulo>XML Schema Definition</titulo>
+        <contenido>
+            <parrafo>XSD es un lenguaje que permite definir la estructura de un documento XML, asegurando su validez mediante reglas estrictas. Se le conoce también como XML Schema y es más flexible y potente que DTD.</parrafo>
+            <parrafo>Para asociar un esquema XSD a un documento XML, se debe hacer referencia al namespace http://www.w3.org/2001/XMLSchema-instance, generalmente con el prefijo xsi. El esquema se define dentro del elemento raíz &lt;xs:schema&gt;.</parrafo>
+
+            <subtitulo>Elementos Simples en XSD</subtitulo>
+            <parrafo>Los elementos simples únicamente pueden contener texto y no permiten incluir atributos ni elementos hijos. Su contenido debe ajustarse a tipos de datos predefinidos por W3C XML Schema o a tipos definidos por el usuario.</parrafo>
+            <ejemplo>
+    &lt;xs:element name="persona" type="xs:int"/&gt;
+            </ejemplo>
+            <parrafo>Si un elemento tiene un valor fijo, se usa el atributo fixed. Para valores por defecto, se emplea default:</parrafo>
+            <ejemplo>
+    &lt;xs:element name="pais" type="xs:string" fixed="España"/>
+    &lt;xs:element name="ciudad" type="xs:string" default="Madrid"/>
+            </ejemplo>
+
+            <subtitulo>Atributos en XSD</subtitulo>
+            <parrafo>Para definir un atributo, se utiliza la etiqueta &lt;xs:attribute>, la cual puede tomar valores de tipos simples.</parrafo>
+            <ejemplo>
+    &lt;xs:attribute name="codigo" type="xs:string" use="required"/>
+            </ejemplo>
+            <parrafo>Los atributos pueden ser:</parrafo>
+            <lista>
+                <item>fixed: Solo pueden contener un valor específico.</item>
+                <item>default: Se usa cuando no se proporciona otro valor.</item>
+                <item>required: Deben estar presentes en el documento.</item>
+                <item>optional: Pueden o no incluirse.</item>
+            </lista>
+
+
+            <subtitulo>Restricciones en XSD</subtitulo>
+            <parrafo>XSD permite definir restricciones en los valores de los elementos y atributos, conocidas como facetas.</parrafo>
+            <parrafo>Ejemplo completo de una restricción para valores entre 1 y 12</parrafo>
+            <ejemplo>
+    &lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+        &lt;xs:simpleType name="edadValida">
+            &lt;xs:restriction base="xs:int">
+                &lt;xs:minInclusive value="1"/>
+                &lt;xs:maxInclusive value="12"/>
+            &lt;/xs:restriction>
+        &lt;/xs:simpleType>
+
+        &lt;xs:element name="edad" type="edadValida"/&gt;
+
+    &lt; /xs:schema>
+            </ejemplo>
+
+            <subtitulo>Elementos Complejos en XSD</subtitulo>
+            <parrafo>Un elemento es complejo si puede contener otros elementos y/o atributos. Se definen con &lt;xs:complexType> y pueden adoptar varias estructuras:</parrafo>
+            <lista>
+                <item>Elementos vacíos: Sin contenido pero con atributos.</item>
+                <item>Elementos con contenido mixto: Pueden contener texto y elementos hijos.</item>
+            </lista>
+            <parrafo>Ejemplo de un elemento complejo que contiene elementos simples dentro y tiene un atributo "id": </parrafo>
+            <ejemplo>
+        &lt;xs:element name="persona"&gt;
+            &lt;xs:complexType&gt;
+
+                &lt;xs:sequence&gt;
+                    &lt;xs:element name="nombre" type="xs:string"/&gt;
+                    &lt;xs:element name="edad" type="xs:int"/&gt;
+                &lt;/xs:sequence&gt;
+
+            &lt;xs:attribute name="id" type="xs:string" use="required"/&gt;
+
+            &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+            </ejemplo>
+
+
+            <subtitulo>Indicadores</subtitulo>
+            <parrafo>Los indicadores permiten definir el uso de los elementos dentro de un elemento complejo:</parrafo>
+
+            <parrafo>Indicadores de orden:</parrafo>
+            <lista>
+                <item>xs:sequence: Define un orden obligatorio.</item>
+                <item>xs:all: Permite cualquier orden.</item>
+                <item>xs:choice: Obliga a elegir solo un elemento entre varias opciones.</item>
+            </lista>
+
+            <parrafo>Indicadores de ocurrencia:</parrafo>
+            <lista>
+                <item>minOccurs: Número mínimo de ocurrencias (por defecto 1).</item>
+                <item>maxOccurs: Número máximo de ocurrencias (unbounded para ilimitado).</item>
+            </lista>
+
+            <parrafo>Agrupaciones</parrafo>
+            <lista>
+                <item>xs:group: Agrupa elementos relacionados.</item>
+                <item>xs:attributeGroup: Agrupa atributos.</item>
+            </lista>
+
+            <parrafo>Ejemplo completo con los indicadores. Ejemplo.xsd: </parrafo>
+            <ejemplo>
+    &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+        &lt;!-- Definición de un grupo de elementos reutilizables --&gt;
+        &lt;xs:group name=&quot;personaBasica&quot;&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:element name=&quot;nombre&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;xs:element name=&quot;apellido&quot; type=&quot;xs:string&quot;/&gt;
+            &lt;/xs:sequence&gt;
+        &lt;/xs:group&gt;
+
+        &lt;!-- Definición de un grupo de atributos reutilizables --&gt;
+        &lt;xs:attributeGroup name=&quot;infoContacto&quot;&gt;
+            &lt;xs:attribute name=&quot;email&quot; type=&quot;xs:string&quot;/&gt;
+            &lt;xs:attribute name=&quot;telefono&quot; type=&quot;xs:string&quot;/&gt;
+        &lt;/xs:attributeGroup&gt;
+
+        &lt;!-- Definición de un elemento complejo que usa el grupo 'personaBasica' y el atributo 'infoContacto' --&gt;
+        &lt;xs:complexType name=&quot;persona&quot;&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:group ref=&quot;personaBasica&quot;/&gt;
+                &lt;xs:element name=&quot;direccion&quot; type=&quot;xs:string&quot;/&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attributeGroup ref=&quot;infoContacto&quot;/&gt;
+        &lt;/xs:complexType&gt;
+
+        &lt;!-- Definición de un elemento que contiene una persona --&gt;
+        &lt;xs:element name=&quot;persona&quot; type=&quot;persona&quot;/&gt;
+
+        &lt;!-- Definición de un elemento que contiene una lista de teléfonos --&gt;
+        &lt;xs:element name=&quot;telefonos&quot;&gt;
+            &lt;xs:complexType&gt;
+                &lt;xs:sequence&gt;
+                    &lt;xs:element name=&quot;telefono&quot; type=&quot;xs:string&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;unbounded&quot;/&gt;
+                &lt;/xs:sequence&gt;
+            &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;!-- Definición de un elemento que usa 'xs:choice' para seleccionar entre teléfono o email --&gt;
+        &lt;xs:element name=&quot;contacto&quot;&gt;
+            &lt;xs:complexType&gt;
+                &lt;xs:choice&gt;
+                    &lt;xs:element name=&quot;telefono&quot; type=&quot;xs:string&quot;/&gt;
+                    &lt;xs:element name=&quot;email&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;/xs:choice&gt;
+            &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+        &lt;!-- Definición de un elemento que usa 'xs:all' para los elementos en cualquier orden --&gt;
+        &lt;xs:element name=&quot;direccionEnvio&quot;&gt;
+            &lt;xs:complexType&gt;
+                &lt;xs:all&gt;
+                    &lt;xs:element name=&quot;calle&quot; type=&quot;xs:string&quot;/&gt;
+                    &lt;xs:element name=&quot;ciudad&quot; type=&quot;xs:string&quot;/&gt;
+                    &lt;xs:element name=&quot;codigoPostal&quot; type=&quot;xs:string&quot;/&gt;
+                &lt;/xs:all&gt;
+            &lt;/xs:complexType&gt;
+        &lt;/xs:element&gt;
+
+    &lt;/xs:schema&gt;
+
+            </ejemplo>
+
+            <parrafo>Ejemplo.xml:</parrafo>
+            <ejemplo>
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+    &lt;persona email=&quot;arnold@dominio.com&quot; telefono=&quot;123456789&quot;&gt;
+        &lt;nombre&gt;Arnold&lt;/nombre&gt;
+        &lt;apellido&gt;Schwarzenegger&lt;/apellido&gt;
+        &lt;direccion&gt;Calle Farza 123&lt;/direccion&gt;
+    &lt;/persona&gt;
+
+    &lt;telefonos&gt;
+        &lt;telefono&gt;123456789&lt;/telefono&gt;
+        &lt;telefono&gt;987654321&lt;/telefono&gt;
+    &lt;/telefonos&gt;
+
+    &lt;contacto&gt;
+        &lt;telefono&gt;123456789&lt;/telefono&gt;
+    &lt;/contacto&gt;
+
+    &lt;direccionEnvio&gt;
+        &lt;calle&gt;Avenida Andalucia&lt;/calle&gt;
+        &lt;ciudad&gt;Estepona&lt;/ciudad&gt;
+        &lt;codigoPostal&gt;29680&lt;/codigoPostal&gt;
+    &lt;/direccionEnvio&gt;
+
+            </ejemplo>
+
+        </contenido>
+    </seccion>
+
+    <seccion>
+        <titulo>Lukas Clifford 1º DAMP</titulo>
+        <contenido>
+            <subtitulo>Un trabajo sobre XML en XML</subtitulo>
+        </contenido>
+    </seccion>
+
+</trabajo>
